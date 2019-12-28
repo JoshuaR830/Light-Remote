@@ -1,27 +1,28 @@
 var serverAddress = "";
 
-var currentlyActive = "red";
+var currentlyActiveColor = "red";
+var currentlyActiveToggles = [false, false, false];
 
 function setColor(color) {
     console.log(color);
     
-    makeRequest(color);
+    makeColorRequest(color);
 }
 
 function setStyle(color) {
-    document.getElementById(currentlyActive).classList.remove("active-color");
-    currentlyActive = color;
-    document.getElementById(currentlyActive).classList.add("active-color");
+    document.getElementById(currentlyActiveColor).classList.remove("active-color");
+    currentlyActiveColor = color;
+    document.getElementById(currentlyActiveColor).classList.add("active-color");
 }
 
-function makeRequest(color) {
+function makeColorRequest(color) {
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if (this.responseText === "success") {
                 setStyle(color);
-                console.log("success");
+                console.log("Success");
             } else {
                 console.log("Failed");
             }
@@ -30,4 +31,42 @@ function makeRequest(color) {
         xhttp.open("GET", `${serverAddress}/${color}`);
         xhttp.send();
     }
+}
+
+function setToggle(toggle) {
+    console.log(toggle);
+    makeToggleRequest(toggle);
+}
+
+function makeToggleRequest(toggle) {
+    var xhttp = new XMLHttpRequest();
+    setToggleStyle(toggle);
+    // xhttp.onreadystatechange = function() {
+    //     if (this.readyState === 4 &&  this.status === 200) {
+    //         if (this.responseText === "success") {
+    //             setToggleStyle(toggle);
+    //             console.log("Success");
+    //         } else {
+    //             console.log("Failed");
+    //         }
+    //     }
+    // }
+}
+
+function setToggleStyle(toggle) {
+    var currentToggle = toggle - 1;
+    var toggleName = `toggle-${toggle}`;
+
+    if(currentlyActiveToggles[currentToggle]) {
+        document.getElementById(toggleName).classList.remove("toggled-on");
+        document.getElementById(toggleName).classList.add("toggled-off");
+        console.log("Turned off");
+    } else {
+        document.getElementById(toggleName).classList.remove("toggled-off");
+        document.getElementById(toggleName).classList.add("toggled-on");
+        console.log("Turned on");
+    }
+
+    currentlyActiveToggles[currentToggle] = !currentlyActiveToggles[currentToggle]
+
 }

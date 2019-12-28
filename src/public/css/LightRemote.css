@@ -53,9 +53,9 @@ html, body {
     border: 2px solid #007500;  
 }
 
-.blue {
-    background-color: #0000ff;
-    border: 2px solid #0000a3;
+.yellow {
+    background-color: #ffff00;
+    border: 2px solid #9b9b00;
 }
 
 .active-color {
