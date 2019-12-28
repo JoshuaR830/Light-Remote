@@ -1,0 +1,38 @@
+.color-container {
+    width: 80%;
+    height: 35%;
+}
+
+.color-choice {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    line-height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.color-choice:hover {
+    cursor: pointer;
+}
+
+.red {
+    background-color: #ff0000;
+    border: 2px solid #790101;
+}
+
+.green {
+    background-color: #00ff00;
+    border: 2px solid #007500;  
+}
+
+.yellow {
+    background-color: #ffff00;
+    border: 2px solid #9b9b00;
+}
+
+.active-color {
+    border-color: #d1d1d1;
+}

@@ -7,17 +7,16 @@ function setToggle(toggle) {
 
 function makeToggleRequest(toggle) {
     var xhttp = new XMLHttpRequest();
-    setToggleStyle(toggle);
-    // xhttp.onreadystatechange = function() {
-    //     if (this.readyState === 4 &&  this.status === 200) {
-    //         if (this.responseText === "success") {
-    //             setToggleStyle(toggle);
-    //             console.log("Success");
-    //         } else {
-    //             console.log("Failed");
-    //         }
-    //     }
-    // }
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 &&  this.status === 200) {
+            if (this.responseText === "success") {
+                setToggleStyle(toggle);
+                console.log("Success");
+            } else {
+                console.log("Failed");
+            }
+        }
+    }
 }
 
 function setToggleStyle(toggle) {

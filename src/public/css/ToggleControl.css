@@ -1,0 +1,41 @@
+.toggle-container {
+
+}
+
+.toggle-choice {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    line-height: 50px;
+    display: inline-block;
+    border-radius: 10%;
+    background-color: #533d53;
+    border: 2px solid #462f46;
+}
+
+.toggle-choice:hover {
+    cursor: pointer;
+    border-color: #967a96;
+    background-color: #5c4c5c;
+}
+
+.toggled-on {
+    background-color: #218d21;
+    border-color: #135513;
+}
+
+.toggled-on:hover {
+    background-color: #10b310;
+    border-color: #1bdb1b;
+}
+
+.toggled-off {
+    background-color: #6e1010;
+    border-color: #af1c1c;
+}
+
+.toggled-off:hover {
+    background-color: #a51111;
+    border-color: #e41616;
+}
