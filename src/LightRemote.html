@@ -4,9 +4,21 @@
     <head>
         <title>Light Remote</title>
         <link rel="stylesheet" type="text/css" href="public/css/LightRemote.css">
+        <script src="public/js/LightRemote.js"></script>
     </head>
 
     <body>
-        <h1>Hello</h1>
+        <div class="container">
+            <div class="color-container">
+                <div id="red" class="color-choice red" onclick="setColor('red')"></div>
+                <div id="green" class="color-choice green" onclick="setColor('green')"></div>
+                <div id="blue" class="color-choice blue" onclick="setColor('blue')"></div>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle-choice"></div>
+                <div class="toggle-choice toggled-on"></div>
+                <div class="toggle-choice toggled-off"></div>
+            </div>
+        </div>
     </body>
 </html>
