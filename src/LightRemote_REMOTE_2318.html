@@ -14,20 +14,9 @@
     <body>
         <div class="wrapper">
             <div class="color-container container">
-                <div id="manual-colour">
-                    <input id="red-manual" type="number" min="0" max="255">
-                    <input id="green-manual" type="number" min="0" max="255">
-                    <input id="blue-manual" type="number" min="0" max="255">
-                    <button onclick="submitColour()">Submit</button>
-                </div>
                 <div id="red" class="color-choice red" onclick="setColor('red')"></div>
                 <div id="green" class="color-choice green" onclick="setColor('green')"></div>
                 <div id="blue" class="color-choice blue" onclick="setColor('blue')"></div>
-                <br>
-                <div id="red" class="color-choice red" onclick="setRGB(255, 0, 0)"></div>
-                <div id="green" class="color-choice green" onclick="setRGB(0, 255, 0)"></div>
-                <div id="blue" class="color-choice blue" onclick="setRGB(0, 0, 255)"></div>
-                
             </div>
             <div class="toggle-container container">
                 <div id="toggle-1" class="toggle-choice toggled-off" onclick="setToggle(1)"></div>

@@ -64,8 +64,9 @@ function makeColorRequest(color) {
                 console.log("Failed");
             }
         }
-
-        xhttp.open("GET", `${serverAddress}/${color}`);
-        xhttp.send();
     }
+
+    console.log(`Doing it: ${serverAddress}/${color}`);
+    xhttp.open("GET", `${serverAddress}/${color}`);
+    xhttp.send();
 }
