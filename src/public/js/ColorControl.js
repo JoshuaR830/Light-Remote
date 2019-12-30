@@ -54,7 +54,7 @@ function makeColorRequest(color) {
     console.log(blue);
     var xhttp = new XMLHttpRequest();
     console.log(serverAddress);
-
+    var parameters = 'red=0&green=0&blue=255';
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if (this.responseText === "success") {
@@ -67,6 +67,7 @@ function makeColorRequest(color) {
     }
 
     console.log(`Doing it: ${serverAddress}/${color}`);
-    xhttp.open("GET", `${serverAddress}/${color}`);
-    xhttp.send();
+    xhttp.open("POST", `${serverAddress}`, true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(parameters);
 }
