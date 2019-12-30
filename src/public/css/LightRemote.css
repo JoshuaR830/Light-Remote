@@ -22,8 +22,8 @@ html, body {
     margin-right: 10%;
     margin-top: 5%;
     box-sizing: border-box;
-    width: 80%;
-    height: 35%;
+    min-width: 600px;
+    min-height: 600px;
     background-color: #63586e;
     border-radius: 16px;
     display: inline-block;
