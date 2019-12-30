@@ -1,13 +1,7 @@
-var currentlyActiveColor = "red";
+var currentlyActiveColor = "255000000";
 var red = 0;
 var green = 0;
 var blue = 0;
-
-
-function setColor(color) {
-    console.log(color);
-    makeColorRequest(color);
-}
 
 function setRGB(r, g, b) {
     red = r.toString().padStart(3, 0);
@@ -18,8 +12,14 @@ function setRGB(r, g, b) {
 }
 
 function setStyle(color) {
+
+    if(color === "user-defined") {
+        colorId = "custom"
+    } else {
+        var colorId = `${red}${green}${blue}`;
+    }
     document.getElementById(currentlyActiveColor).classList.remove("active-color");
-    currentlyActiveColor = color;
+    currentlyActiveColor = colorId;
     document.getElementById(currentlyActiveColor).classList.add("active-color");
 }
 
@@ -49,12 +49,8 @@ function submitColour() {
 }
 
 function makeColorRequest(color) {
-    console.log(red);
-    console.log(green);
-    console.log(blue);
     var xhttp = new XMLHttpRequest();
-    console.log(serverAddress);
-    var parameters = 'red=0&green=0&blue=255';
+    var parameters = `red=${red}&green=${green}&blue=${blue}`;
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if (this.responseText === "success") {
@@ -66,7 +62,6 @@ function makeColorRequest(color) {
         }
     }
 
-    console.log(`Doing it: ${serverAddress}/${color}`);
     xhttp.open("POST", `${serverAddress}`, true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(parameters);
