@@ -33,6 +33,11 @@
     border: 2px solid #2602c4;
 }
 
+.custom {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
 .active-color {
     border-color: #d1d1d1;
 }
