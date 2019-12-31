@@ -7,16 +7,23 @@
         <link rel="stylesheet" type="text/css" href="/css/LightRemote.css">
         <link rel="stylesheet" type="text/css" href="/css/ToggleControl.css">
         <link rel="stylesheet" type="text/css" href="/css/ColorPicker.css">
+        <link rel="stylesheet" type="text/css" href="/css/ColorSlider.css">
         <script src="/js/LightRemote.js"></script>
         <script src="/js/ToggleControl.js"></script>
         <script src="/js/ColorControl.js"></script>
         <script src="/js/ColorPickerCanvas.js"></script>
+        <script src="/js/ColorSlider.js"></script>
     </head>
 
     <body>
         <div class="wrapper">
-            <div class="color-container container">
-                <canvas id="color-picker-canvas" class="" height="600px" width="600"></canvas>
+            <div class="container">
+                <div class="color-container">
+                    <canvas id="color-picker-canvas" class="" height="600px" width="600"></canvas>
+                </div>
+                <div class="brightness-container">
+                    <input type="range" min="0" max="255" value="200" class="slider" id="brightness-slider">
+                </div>
             </div>
         </div>
     </body>

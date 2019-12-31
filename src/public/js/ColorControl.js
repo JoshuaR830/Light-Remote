@@ -12,7 +12,7 @@ function setRGB(r, g, b) {
 }
 
 function setStyle(color) {
-
+    updateSlider(red, green, blue);
     if(color === "user-defined") {
         colorId = "custom"
     } else {
@@ -49,6 +49,7 @@ function submitColour() {
 }
 
 function makeColorRequest(color) {
+    updateSlider(red, green, blue) 
     var xhttp = new XMLHttpRequest();
     var parameters = `red=${red}&green=${green}&blue=${blue}`;
     xhttp.onreadystatechange = function() {

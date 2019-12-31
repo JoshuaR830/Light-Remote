@@ -42,12 +42,11 @@ html, body {
         margin-right: 10%;
         margin-top: 5%;
         box-sizing: border-box;
-        min-width: 600px;
+        min-width: 80%;
         min-height: 600px;
         background-color: #63586e;
         border-radius: 16px;
         display: inline-block;
-        text-align: center;
     }
 }
 
