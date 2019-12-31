@@ -1,0 +1,22 @@
+{
+  "name": "lightremote",
+  "version": "1.0.0",
+  "description": "A colour controller for strip lights",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaR830/Light-Remote.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaR830/Light-Remote/issues"
+  },
+  "homepage": "https://github.com/JoshuaR830/Light-Remote#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

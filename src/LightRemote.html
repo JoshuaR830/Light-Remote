@@ -3,41 +3,21 @@
 <html>
     <head>
         <title>Light Remote</title>
-        <link rel="stylesheet" type="text/css" href="public/css/LightRemote.css">
-        <link rel="stylesheet" type="text/css" href="public/css/ColorControl.css">
-        <link rel="stylesheet" type="text/css" href="public/css/ToggleControl.css">
-        <link rel="stylesheet" type="text/css" href="public/css/ColorPicker.css">
-        <script src="public/js/LightRemote.js"></script>
-        <script src="public/js/ToggleControl.js"></script>
-        <script src="public/js/ColorControl.js"></script>
-        <script src="public/js/ColorPickerCanvas.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/ColorControl.css">
+        <link rel="stylesheet" type="text/css" href="/css/LightRemote.css">
+        <link rel="stylesheet" type="text/css" href="/css/ToggleControl.css">
+        <link rel="stylesheet" type="text/css" href="/css/ColorPicker.css">
+        <script src="/js/LightRemote.js"></script>
+        <script src="/js/ToggleControl.js"></script>
+        <script src="/js/ColorControl.js"></script>
+        <script src="/js/ColorPickerCanvas.js"></script>
     </head>
 
     <body>
         <div class="wrapper">
             <div class="color-container container">
-                <!-- <div id="manual-colour">
-                    <input id="red-manual" type="number" min="0" max="255">
-                    <input id="green-manual" type="number" min="0" max="255">
-                    <input id="blue-manual" type="number" min="0" max="255">
-                </div> -->
-
-                <!-- <div style="display: none"> -->
-                    <!-- <img id="color-picker-image" src="public/images/colourWheel.png"> -->
-                <!-- </div> -->
-                <canvas id="color-picker-canvas"  height="600px" width="600px"></canvas>
-
-                <!-- <div id="custom" class="color-choice custom" onclick="submitColour()"></div>
-                <div id="255000000" class="color-choice red" onclick="setRGB(255, 0, 0)"></div>
-                <div id="000255000" class="color-choice green" onclick="setRGB(0, 255, 0)"></div>
-                <div id="000000255" class="color-choice blue" onclick="setRGB(0, 0, 255)"></div> -->
-                
+                <canvas id="color-picker-canvas" class="" height="600px" width="600"></canvas>
             </div>
-            <!-- <div class="toggle-container container">
-                <div id="toggle-1" class="toggle-choice toggled-off" onclick="setToggle(1)"></div>
-                <div id="toggle-2" class="toggle-choice toggled-off" onclick="setToggle(2)"></div>
-                <div id="toggle-3" class="toggle-choice toggled-off" onclick="setToggle(3)"></div>
-            </div> -->
         </div>
     </body>
 </html>
