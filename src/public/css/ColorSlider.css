@@ -5,9 +5,9 @@
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    height: 16px;
+    height: 32px;
     width: 75%;
-    margin: 32px 0;
+    margin: 64px 0;
     border-radius: 16px;
     background: linear-gradient(to right, #000000, var(--color));
 }
@@ -15,10 +15,24 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     background-image: url('../images/brightness.svg');
     background-color: #ffffff;
     border-radius: 50%;
     cursor:pointer;
+}
+
+@media only screen and (min-width: 1000px){
+
+    .slider {
+        height: 16px;
+        margin: 32px 0;
+        border-radius: 16px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 32px;
+        height: 32px;
+    }
 }
