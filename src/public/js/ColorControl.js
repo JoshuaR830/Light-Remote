@@ -59,7 +59,7 @@ function submitColour() {
 }
 
 function makeColorRequest(color) {
-    updateSlider(red, green, blue) 
+    // updateSlider(red, green, blue);
     var xhttp = new XMLHttpRequest();
     var parameters = `red=${red}&green=${green}&blue=${blue}&brightness=${brightness}`;
     xhttp.onreadystatechange = function() {
