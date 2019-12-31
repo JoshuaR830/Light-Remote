@@ -25,6 +25,11 @@
                 <div class="brightness-container">
                     <input type="range" min="0" max="255" value="200" class="slider" id="brightness-slider">
                 </div>
+                <div class="preset-container">
+                    <div id="255000000" class="color-choice red" onclick="setRGB(255, 0, 0)"></div>
+                    <div id="000255000" class="color-choice green" onclick="setRGB(0, 255, 0)"></div>
+                    <div id="000000255" class="color-choice blue" onclick="setRGB(0, 0, 255)"></div>
+                </div>
             </div>
         </div>
     </body>

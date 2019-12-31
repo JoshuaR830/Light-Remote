@@ -4,11 +4,11 @@
 }
 
 .color-picker-canvas {
-    width: 100%;
+    width: 600px
 }
 
-@media only screen and (min-width: 1000px){
+/* @media only screen and (min-width: 1000px){
     .color-picker-canvas {
         width: 600px;
     }
-}
+} */

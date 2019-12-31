@@ -4,6 +4,10 @@
     height: 35%;
 }
 
+.preset-container {
+    display: inline-block;
+}
+
 @media only screen and (min-width: 1000px){
 
     .color-container {
@@ -11,6 +15,10 @@
         height: auto;
         display: block;
         padding: 32px;
+    }
+
+    .preset-container {
+        display: none;
     }
 }
 
