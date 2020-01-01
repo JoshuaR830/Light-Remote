@@ -47,7 +47,7 @@
 
 @keyframes card-appear {
     0% {
-        margin-left: 6000px;
+        margin-left: 1000px;
     }
 
     100% {
@@ -61,6 +61,6 @@
     }
 
     100% {
-        margin-left: -600px;
+        margin-left: -1000px;
     }
 }

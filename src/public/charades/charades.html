@@ -6,39 +6,45 @@
         <link rel="stylesheet" type="text/css" href="../css/LightRemote.css">
         <link rel="stylesheet" type="text/css" href="css/charades.css">
         <link rel="stylesheet" type="text/css" href="css/charade-card.css">
+        <link rel="stylesheet" type="text/css" href="css/mode.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
         
         
         <script src="js/charade-card.js"></script>
 
-        <script src="/js/LightRemote.js"></script>
-        <script src="/js/ToggleControl.js"></script>
-        <script src="/js/ColorControl.js"></script>
-        <script src="/js/ColorPickerCanvas.js"></script>
-        <script src="/js/ColorSlider.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/charade-socket.js"></script>
+
 
     </head>
 
     <body>
+        <input type="hidden" id="current-user">
         <div class="wrapper">
             <div class="container">
+                <div id="login">
+                    <input id='user-name-entry' class="user-name">
+                    <div class="button" onclick=submitUserName()>Submit</div>
+                </div>
+                <div id="charades">
                     <div class="score-container content-box">
                         <div class="score"></div>
                         <div class="score"></div>
                         <div class="score"></div>
                     </div>
-                <div class="card-container content-box">
-                    <div id="charade-card" class="card content-box">
-                        <div class="title">Title</div>
-                        <div class="body">Body</div>
-                        <div class="reveal-container">
-                            <div class="button">Reveal</div>
+                    <div class="card-container content-box">
+                        <div id="charade-card" class="card content-box">
+                            <div class="title">Title</div>
+                            <div class="body">Body</div>
+                            <div id="reveal-button" class="reveal-container">
+                                <div class="button" onclick="revealAnswer()">Reveal</div>
+                            </div>
                         </div>
                     </div>
+                    <div id="new-charade" class="controls content-box">
+                        <div class="button request-card" onclick="newCard()">New</div>
+                    </div>
                 </div>
-                <div class="controls content-box">
-                    <div class="button request-card" onclick="newCard()">New</div>
-                </div>
-               
             </div>
         </div>
     </body>
