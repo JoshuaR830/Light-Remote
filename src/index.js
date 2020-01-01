@@ -20,9 +20,10 @@ function selectCharade() {
         var numCategories = charades.length;
 
         if(numCategories === 0) {
-            break;
+            charades = [["Christmas tree", "Snowball", "Tin of roses"], ["Footballer", "Tennis player", "Snooker player"]]
+            numCategories = charades.length;
         }
-        
+
         var categoryToSelect = (Math.floor(Math.random() * 10) % numCategories);
         var numCharades = charades[categoryToSelect].length;
         if(numCharades === 0){
