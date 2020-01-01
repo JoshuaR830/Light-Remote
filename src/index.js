@@ -35,7 +35,8 @@ function selectCharade() {
 
     var charadeToSelect = (Math.floor(Math.random() * 10) % numCharades);
 
-    var answer = charades[categoryToSelect][charadeToSelect];
+    answer = charades[categoryToSelect][charadeToSelect];
+    console.log("When set" + answer);
 
     charades[categoryToSelect].splice(charadeToSelect, 1);
     if(numCategories > 0) {
@@ -56,14 +57,16 @@ io.on('connection', function(socket) {
     });
 
     socket.on('user-revealed-answer', function() {
+        console.log(`answer ${answer}`);
         socket.broadcast.emit('reveal-answer', answer);
     });
 
     socket.on('user-selected-new-card', function() {
         console.log("New");
         response = selectCharade();
+        console.log(answer);
         socket.emit('my-charade', response);
-        socket.broadcast.emit('set-colour');
+        socket.broadcast.emit('set-colour', response[1]);
         socket.broadcast.emit('new-card');
     })
 });

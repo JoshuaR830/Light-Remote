@@ -24,8 +24,19 @@
         <div class="wrapper">
             <div class="container">
                 <div id="login">
-                    <input id='user-name-entry' class="user-name">
-                    <div class="button" onclick=submitUserName()>Submit</div>
+
+                    <div class="content">
+                    <div class = "top">
+                        <h1 class="heading">Login</h1>
+
+                        <h1>Please enter your name</h1>
+                        <input id='name-input' class="user-name">
+ 
+                        <div>
+                            <button class="login-button" onclick="submitUserName()">Login</button>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div id="charades">
                     <div class="score-container content-box">
@@ -35,8 +46,8 @@
                     </div>
                     <div class="card-container content-box">
                         <div id="charade-card" class="card content-box">
-                            <div class="title">Title</div>
-                            <div class="body">Body</div>
+                            <div class="title"></div>
+                            <div class="body"></div>
                             <div id="reveal-button" class="reveal-container">
                                 <div class="button" onclick="revealAnswer()">Reveal</div>
                             </div>

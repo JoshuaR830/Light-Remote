@@ -17,6 +17,7 @@ socket.on('my-charade', function(charade) {
     yourCharade = charade[0];
     category = charade[1];
     console.log(`Category: ${category}, Charade: ${charade}` );
+    setLightColour()
     setColours();
     dissapear();
     setTimeout(appear, 500);
@@ -47,7 +48,7 @@ function hideLogin() {
 }
 
 function submitUserName() {
-    var name = document.getElementById('user-name-entry').value;
+    var name = document.getElementById('name-input').value;
     socket.emit('new-user-name', name);
     hideLogin();
 }
@@ -72,17 +73,28 @@ function setColours() {
         root.style.setProperty("--accent-color", "rgb(209, 19, 32)");
         root.style.setProperty("--border-color", "rgb(107, 20, 26)");
         root.style.setProperty("--text-color", "rgb(196, 147, 150)");
-        changeLightColour(181, 5, 17);
+        // changeLightColour(181, 5, 17);
     } else if (category === "sport") {
         root.style.setProperty("--card-color", "rgb(18, 102, 219)");
         root.style.setProperty("--accent-color", "rgb(87, 126, 181)");
         root.style.setProperty("--border-color", "rgb(62, 86, 120)");
         root.style.setProperty("--text-color", "rgb(11, 43, 89)");
+        // changeLightColour(18, 102, 219);
+
+    }
+}
+
+function setLightColour() {
+    if(category === "christmas") {
+        changeLightColour(181, 5, 17);
+    } else if (category === "sport") {
         changeLightColour(18, 102, 219);
     }
 }
 
-socket.on('set-colour', function(category) {
+socket.on('set-colour', function(chosenCategory) {
+    category = chosenCategory;
+    console.log("Please set the colour");
     setColours();
 });
 
