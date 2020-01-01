@@ -39,13 +39,13 @@ function displayPlayers(scores, players) {
         score = scores[players[i]];
         let currentPlayer = players[i]
         var div = document.createElement('div');
-        div.classList.add("button");
+        div.classList.add("score");
         console.log(currentPlayer);
         div.onclick = function () {
             console.log(currentPlayer);
             incrementScore(currentPlayer);
         }
-        div.innerText = `${players[i]} = ${score}`;
+        div.innerHTML = `${players[i]}<br><span class="score-text">${score}</span>`;
         playerContainer.appendChild(div);
     }
 

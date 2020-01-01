@@ -71,6 +71,8 @@ io.on('connection', function(socket) {
         }
         console.log(scores);
         socket.emit('load-score-data', scores, names);
+        socket.broadcast.emit('load-score-data', scores, names);
+
 
     });
 
@@ -78,6 +80,7 @@ io.on('connection', function(socket) {
         console.log(`${name} needs their score incremented`);
         scores[name] += 1;
         socket.emit('load-score-data', scores, names);
+        socket.broadcast.emit('load-score-data', scores, names);
     })
 
     socket.on('user-revealed-answer', function() {
