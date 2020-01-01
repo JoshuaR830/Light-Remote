@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Light Remote</title>
+        <link rel="stylesheet" type="text/css" href="../css/LightRemote.css">
+        <link rel="stylesheet" type="text/css" href="css/charades.css">
+        <link rel="stylesheet" type="text/css" href="css/charade-card.css">
+        
+        
+        <script src="js/charade-card.js"></script>
+
+        <script src="/js/LightRemote.js"></script>
+        <script src="/js/ToggleControl.js"></script>
+        <script src="/js/ColorControl.js"></script>
+        <script src="/js/ColorPickerCanvas.js"></script>
+        <script src="/js/ColorSlider.js"></script>
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                    <div class="score-container content-box">
+                        <div class="score"></div>
+                        <div class="score"></div>
+                        <div class="score"></div>
+                    </div>
+                <div class="card-container content-box">
+                    <div id="charade-card" class="card content-box">
+                        <div class="title">Title</div>
+                        <div class="body">Body</div>
+                        <div class="reveal-container">
+                            <div class="button">Reveal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls content-box">
+                    <div class="button request-card" onclick="newCard()">New</div>
+                </div>
+               
+            </div>
+        </div>
+    </body>
+</html>

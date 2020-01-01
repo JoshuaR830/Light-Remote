@@ -40,7 +40,7 @@ html, body {
     .container {
         margin-left: 10%;
         margin-right: 10%;
-        margin-top: 5%;
+        margin-top: 32px;
         box-sizing: border-box;
         min-width: 80%;
         min-height: 600px;
