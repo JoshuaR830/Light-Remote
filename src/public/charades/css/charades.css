@@ -1,6 +1,17 @@
+:root {
+    --card-color: #b680d1;
+    --accent-color: #9954d1;
+    --border-color: #7332a8;
+    --text-color: #ffffff;
+}
+
+body {
+    color: var(--text-color);
+}
+
 .content-box {
     border-radius: 16px;
-    background-color: #b680d1;
+    background-color: var(--card-color);
 }
 
 .card-container {
@@ -34,11 +45,11 @@
     height: 80px;
     padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #7332a8;
+    border: 1px solid var(--border-color);
     display: inline-block;
     text-align: center;
     border-radius: 50%;
-    background-color: #9954d1;
+    background-color: var(--accent-color);
 }
 
 .request-card {
@@ -50,8 +61,8 @@
     height: 20px;
     padding: 20px;
     border-radius: 16px;
-    border: 1px solid #7332a8;
-    background-color: #9954d1;
+    border: 1px solid var(--border-color);;
+    background-color: var(--accent-color);
     text-align: center;
     display: inline-block;
 }

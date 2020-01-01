@@ -6,25 +6,40 @@ const io = require('socket.io')(http);
 
 var names = [];
 
-var charades = ["Christmas tree", "Snowball", "Tin of roses"]
+var categories = ["christmas", "sport"]
+var charades = [["Christmas tree", "Snowball", "Tin of roses"], ["Footballer", "Tennis player", "Snooker player"]]
 
 var answer;
 
 app.use(express.static('public'));
 
 function selectCharade() {
-    var numCharades = charades.length;
+    
+    
+    do {
+        var numCategories = charades.length;
+
+        if(numCategories === 0) {
+            break;
+        }
+        
+        var categoryToSelect = (Math.floor(Math.random() * 10) % numCategories);
+        var numCharades = charades[categoryToSelect].length;
+        if(numCharades === 0){
+            charades.splice(categoryToSelect, 1);
+        }
+
+       
+    } while(numCharades === 0);
+
     var charadeToSelect = (Math.floor(Math.random() * 10) % numCharades);
-    var answer = charades[charadeToSelect];
 
-    console.log(charades);
+    var answer = charades[categoryToSelect][charadeToSelect];
 
-    charades.splice(charadeToSelect, 1);
-
-    console.log(charades);
-    console.log(answer);
-
-    return answer;
+    charades[categoryToSelect].splice(charadeToSelect, 1);
+    if(numCategories > 0) {
+        return [answer, categories[categoryToSelect]];
+    }
 }
 
 io.on('connection', function(socket) {
@@ -45,8 +60,9 @@ io.on('connection', function(socket) {
 
     socket.on('user-selected-new-card', function() {
         console.log("New");
-        answer = selectCharade();
-        socket.emit('my-charade', answer);
+        response = selectCharade();
+        socket.emit('my-charade', response);
+        socket.broadcast.emit('set-colour');
         socket.broadcast.emit('new-card');
     })
 });
@@ -60,3 +76,4 @@ app.get('/charades', function(req, res) {
 });
 
 http.listen(8000, () => console.log('Listening on port 8000!'));
+
