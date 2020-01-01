@@ -20,19 +20,25 @@
     margin-top: 16px;
     width: 100%;
     display: inline-block;
-    height: 44px;
+    height: 92px;
     text-align: center;
     line-height: 44px;
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: 60px;
+
 }
 
 .body {
     width: 100%;
     display: inline-block;
-    height: 304px;
+    height: 256px;
     margin-top: 16px;
     margin-top: 16px;
     padding: 20px;
     box-sizing: border-box;
+    font-size: 50px;
+
 }
 
 .reveal-container {
@@ -43,6 +49,11 @@
     margin-bottom: 16px;
     margin-top: 16px;
     box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1250px){
+    
+
 }
 
 @keyframes card-appear {

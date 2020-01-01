@@ -31,7 +31,12 @@ body {
     margin-bottom: 32px;
     width: 600px;
     padding: 20px 0;
-    display: inline-block;
+    height: 143px;
+    box-sizing: border-box;
+}
+
+#reveal-button {
+    display: none;
 }
 
 .score-container {
@@ -59,14 +64,25 @@ body {
 }
 
 .button {
-    width: 100px;
-    height: 20px;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);;
+    width: 200px;
+    text-align: center;
+
+    border: 1px solid var(--border-color);
+    font-size: 3em;
     background-color: var(--accent-color);
     text-align: center;
-    display: inline-block;
+    display: inline-block; 
+
+    padding: 16px;
+    border-radius: 16px;
+
+}
+
+
+.category {
+    font-size: 60px;
+    padding: 20px;
+    line-height: 60px;
 }
 
 .button:hover {

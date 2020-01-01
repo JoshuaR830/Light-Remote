@@ -20,7 +20,7 @@
     </head>
 
     <body>
-        <input type="hidden" id="current-user">
+        <input type="hidden" id="my-user">
         <div class="wrapper">
             <div class="container">
                 <div id="login">
@@ -40,22 +40,23 @@
                 </div>
                 <div id="charades">
                     <div class="score-container content-box">
+                        <div id="category" class="category"></div>
+                        <!-- <div class="score"></div>
                         <div class="score"></div>
-                        <div class="score"></div>
-                        <div class="score"></div>
-                    </div>
+                        <div class="score"></div> -->
+                    </div> 
                     <div class="card-container content-box">
                         <div id="charade-card" class="card content-box">
                             <div class="title"></div>
                             <div class="body"></div>
-                            <div id="reveal-button" class="reveal-container">
-                                <div class="button" onclick="revealAnswer()">Reveal</div>
-                            </div>
+                            
                         </div>
                     </div>
-                    <div id="new-charade" class="controls content-box">
-                        <div class="button request-card" onclick="newCard()">New</div>
+                    <div class="controls content-box">
+                        <div id="new-charade" class="button request-card" onclick="newCard()">New</div>
+                        <div id="reveal-button" class="button" onclick="revealAnswer()">Reveal</div>
                     </div>
+                    <div id="player-container"></div>
                 </div>
             </div>
         </div>

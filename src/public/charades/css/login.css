@@ -64,7 +64,7 @@ body {
     font-size: 3em;
 }
 
-.button:hover {
+.login-button:hover {
     cursor: pointer;
     animation-name: inputFocus;
     animation-delay: 0s;
