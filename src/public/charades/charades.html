@@ -30,23 +30,23 @@
                 <div id="login">
 
                     <div class="content">
-                    <div class = "top">
-                        <h1 class="heading">Login</h1>
+                        <div class = "top">
+                            <h1 class="heading">Login</h1>
 
-                        <form id="login-form">
-                            <h1>Please enter your name</h1>
+                            <form id="login-form">
+                                <h1>Please enter your name</h1>
 
-                            <input id='name-input' class="user-name">
+                                <input id='name-input' class="user-name">
 
-                            <!-- <h1>Please enter room code</h1> -->
-                            <input type="hidden" id='room-input' class="user-name" value="abcd">
-    
-                            <div>
-                                <button class="login-button">Login</button>
-                            </div>
-                        </form>
+                                <!-- <h1>Please enter room code</h1> -->
+                                <input type="hidden" id='room-input' class="user-name" value="abcd">
+        
+                                <div>
+                                    <button class="login-button">Login</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div id="charades">
 
@@ -74,8 +74,17 @@
                     </div>
                 </div>
                 <div id="winner">
-                    <div clas="score-board">
-                        <div id="player-container" class="content-box player-container"></div>
+                    <div class="score-board">
+                        <div id="podeum" class="podeum">
+                            <div class="top-three-container"></div>
+                                <div id="first-place" class="first-place-container"></div>
+                                <div id="second-place" class="second-place-container"></div>
+                                <div id="third-place" class="third-place-container"></div>
+                            </div>
+                            <div id="other-places" class="other-player-container"></div>
+                        </div>
+                        
+                        <!-- <div id="player-container" class="content-box player-container"></div> -->
                     </div>
                 </div>
             </div>

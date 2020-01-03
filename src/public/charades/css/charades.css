@@ -99,6 +99,50 @@ body {
     cursor: pointer;
 }
 
+.first-player {
+    background-color: #d4af37;
+    border-color: #79641f;
+}
+
+.second-player {
+    background-color: #aaa9ad;
+    border-color: #656566;
+}
+
+.third-player {
+    background-color: #cd7f32;
+    border-color: #583716;
+}
+
+.first-place-container {
+    position: absolute;    
+    margin-left: 60px;
+    margin-top: 80;
+}
+
+.second-place-container {
+    position: absolute;
+    margin-left: -100px;
+    margin-top: 160px;
+}
+
+.third-place-container {
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 240px;
+}
+
+.other-player-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 400px;
+}
+
+.top-three-container {
+    position: relative;
+    display: inline-block
+}
+
 @media only screen and (min-width: 1250px){
 
     body {

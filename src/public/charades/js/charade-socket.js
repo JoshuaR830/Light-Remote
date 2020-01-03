@@ -85,20 +85,78 @@ socket.on('load-score-data', function(scores, names) {
     displayPlayers(scores, names);
 });
 
-socket.on('game-over', function(winner) {
-    console.log(winner);
-    showWinner(winner);
+socket.on('game-over', function(winnerName, scores, names) {
+    // showWinner(winnerName);
+    console.log("Winner is: " + winnerName);
+    console.log(scores);
+    console.log(names);
+    showWinners(scores, names);
 });
+
+function showWinners(scores, names) {
+
+    charades.style.display = 'none';
+    winner.style.display = 'inline-block';
+
+    var podeum = document.getElementById('podeum');
+    var otherPlayers = document.getElementById('other-places');
+    otherPlayers.innerHTML = "";
+    console.log(scores);
+
+    orderedNames = Object.keys(scores);
+
+    console.log(orderedNames);
+    console.log(orderedNames.length);
+
+    var position;
+
+
+    for(i = 0; i < orderedNames.length; i++) {
+        score = scores[orderedNames[i]];
+        var position = document.createElement('div');
+        var place;
+
+        if (i === 0) {
+            console.log('first:' + orderedNames[i]);
+            place = document.getElementById('first-place');
+            position.classList.add('score', 'first-player');
+            position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
+            place.appendChild(position);
+            
+        } else if (i === 1) {
+            console.log('second:' + orderedNames[i])
+            place = document.getElementById('second-place');
+            position.classList.add('score', 'second-player');
+            position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
+            place.appendChild(position);
+
+            
+        } else if (i == 2) {
+            place = document.getElementById('third-place');
+            position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
+            position.classList.add('score', 'third-player');
+            console.log('third:' + orderedNames[i]);
+            place.appendChild(position);
+
+
+        } else {
+            place = document.getElementById('other-places');
+            console.log('other:' + orderedNames[i]);
+            let currentPlayer = orderedNames[i]
+            
+            console.log(currentPlayer);
+            position.classList.add("score");
+
+            position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
+            place.appendChild(position);
+        }
+    };
+}
 
 function hideLogin(name) {
     login.style.display = 'none';
     charades.style.display = 'inline-block';
     document.getElementById("my-user").value = name;
-}
-
-function showWinner(winner) {
-    charades.style.display = 'none';
-    winner.style.display = 'inline-block';
 }
 
 function submitUserName() {

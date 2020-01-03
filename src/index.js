@@ -1,3 +1,4 @@
+const debug = true;
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
@@ -5,6 +6,8 @@ const io = require('socket.io')(http);
 
 var names = [];
 var scores = {};
+var sortedScores = {};
+
 
 var initialCategories = ["christmas", "sport", "france", "technology", "animals", "books", "countries", "politics"]
 var initialCharades = [
@@ -18,6 +21,11 @@ var initialCharades = [
     ["Brexit", "voting", "Boris Johnson", "Jeremy Corbyn", "Michael Gove", "Jacob Reese Mogg", "the houses of parliament", "Conservatives", "Labour", "Liberal Democrats", "SNP"]
 ]
 
+if(debug) {
+    var initialCategories = ["Hello"];
+    var initialCharades = [["Hello"]];
+}
+
 var charades = initialCharades;
 var categories = initialCategories;
 
@@ -28,6 +36,7 @@ app.use(express.static('public'));
 function selectCharade() {
     
     var playState = true;
+
     
     do {
         var numCategories = charades.length;
@@ -41,18 +50,23 @@ function selectCharade() {
             var arrScores = Object.values(scores);
 
             arrScores.sort().reverse();
-            var sortedScores = [];
+
+            console.log(arrScores);
+
             for(i = 0; i < arrScores.length; i++) {
                 for(j = 0; j < names.length; j++) {
-                    if(scores[names[j]] === arrScores[i]) {
+                    console.log(scores[names[j]]);
+                    console.log("sorted ", sortedScores);
+                    console.log(arrScores[i]);
+                    if(arrScores[i] === scores[names[j]]) {
                         console.log(names[j]);
-                        console.log(sortedScores);
                         console.log(Object.keys(sortedScores));
                         // if(names[j] in Object.keys(sortedScores)) {
                         //     console.log("Already included");
                         //     continue;
                         // }
                         sortedScores[names[j]] = arrScores[i];
+
                         // break;
                     }
                 }
@@ -82,10 +96,11 @@ function selectCharade() {
 
 
             // });
-
+            console.log("emit game-over");
             console.log(names[max]);
+            console.log(sortedScores);
 
-            io.sockets.emit('game-over', names[max]);
+            io.sockets.emit('game-over', names[max], sortedScores, names);
             playState = false;
             break;
         }
