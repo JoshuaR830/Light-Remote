@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 var names = [];
 var scores = {};
 
-var categories = ["christmas", "sport", "france", "technology", "animals", "books", "countries", "politics"]
+var initialCategories = ["christmas", "sport", "france", "technology", "animals", "books", "countries", "politics"]
 var initialCharades = [
     ["Christmas tree", "Snowball", "Tin of roses"], 
     ["Footballer", "Tennis player", "Snooker player"], 
@@ -19,6 +19,7 @@ var initialCharades = [
 ]
 
 var charades = initialCharades;
+var categories = initialCategories;
 
 var answer;
 
@@ -26,13 +27,67 @@ app.use(express.static('public'));
 
 function selectCharade() {
     
+    var playState = true;
     
     do {
         var numCategories = charades.length;
 
         if(numCategories === 0) {
-            charades = initialCharades;
-            numCategories = charades.length;
+            console.log('All done');
+
+            var max = 0;
+            console.log("initial " + names[max]);
+
+            var arrScores = Object.values(scores);
+
+            arrScores.sort().reverse();
+            var sortedScores = [];
+            for(i = 0; i < arrScores.length; i++) {
+                for(j = 0; j < names.length; j++) {
+                    if(scores[names[j]] === arrScores[i]) {
+                        console.log(names[j]);
+                        console.log(sortedScores);
+                        console.log(Object.keys(sortedScores));
+                        // if(names[j] in Object.keys(sortedScores)) {
+                        //     console.log("Already included");
+                        //     continue;
+                        // }
+                        sortedScores[names[j]] = arrScores[i];
+                        // break;
+                    }
+                }
+            }
+
+            console.log(sortedScores)
+
+
+            for (i = 0; i < names.length; i++) {
+                console.log("current " + names[i]);
+                console.log("max  " + names[max]);
+                if (scores[names[i]] > scores[names[max]]) {
+                    max = i;
+                    console.log('Key: ' + names[i]);
+                }
+            }
+
+            // Object.keys(scores).forEach(function (key) {
+                
+
+            //     console.log(`Max ${max}`);
+            //     console.log(`Key ${key}`);
+            //     if(scores[key] > scores[max]) {
+            //         console.log('Key: ' + key);
+            //         max = key;
+            //     }
+
+
+            // });
+
+            console.log(names[max]);
+
+            io.sockets.emit('game-over', names[max]);
+            playState = false;
+            break;
         }
 
         var categoryToSelect = (Math.floor(Math.random() * 10) % numCategories);
@@ -41,20 +96,29 @@ function selectCharade() {
 
         if(numCharades === 0){
             charades.splice(categoryToSelect, 1);
+            categories.splice(categoryToSelect, 1);
         }
+
+        console.log(charades);
+        console.log(categories);
 
        
     } while(numCharades === 0);
 
-    var charadeToSelect = (Math.floor(Math.random() * 10) % numCharades);
+    if (playState) {
+        var charadeToSelect = (Math.floor(Math.random() * 10) % numCharades);
 
-    answer = charades[categoryToSelect][charadeToSelect];
-    console.log("When set" + answer);
-
-    charades[categoryToSelect].splice(charadeToSelect, 1);
-    if(numCategories > 0) {
-        return [answer, categories[categoryToSelect]];
+        answer = charades[categoryToSelect][charadeToSelect];
+        console.log("When set" + answer);
+    
+        charades[categoryToSelect].splice(charadeToSelect, 1);
+        if(numCategories > 0) {
+            return [answer, categories[categoryToSelect]];
+        }
+    } else {
+        return [null, null];
     }
+
 }
 
 io.on('connection', function(socket) {
@@ -63,8 +127,9 @@ io.on('connection', function(socket) {
         console.log('user disconnected');
     });
 
-    socket.on('new-user-name', function(name) {
+    socket.on('new-user-name', function(name, room) {
         console.log(name);
+        name = name.split(" ")[0];
         if(!(name in scores)) {
             names[names.length] = name;
             scores[name] = 0;

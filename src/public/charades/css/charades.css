@@ -7,7 +7,7 @@
 
 body {
     color: var(--text-color);
-    font-family: roboto;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .card-container {
-    width: 600px;
+    width: 800px;
     height: 500px;
     display: inline-block;
     margin: 32px 0;
@@ -29,7 +29,7 @@ body {
     text-align: center;
     display: inline-block;
     margin-bottom: 32px;
-    width: 600px;
+    width: 800px;
     padding: 20px 0;
     height: 143px;
     box-sizing: border-box;
@@ -40,14 +40,14 @@ body {
 }
 
 .score-container {
-    width: 600px;
+    width: 800px;
     height: 100px;
     margin-top: 32px;
     display: inline-block;
 }
 
 .player-container {
-    width: 600px;
+    width: 800px;
     display: inline-block;
     margin-top: 32px;
     background-color: var(--card-color);
@@ -55,7 +55,6 @@ body {
 }
 
 .score {
-    margin-top: 10px;
     width: 120px;
     height: 120px;
     padding: 20px;
@@ -88,9 +87,7 @@ body {
 
     padding: 16px;
     border-radius: 16px;
-
 }
-
 
 .category {
     font-size: 60px;
@@ -104,15 +101,22 @@ body {
 
 @media only screen and (min-width: 1250px){
 
+    body {
+        zoom: 0.8;
+    }
     .card-container {
-        width: 800px;
+        width: 1000px;
     }
     
     .controls {
-        width: 800px;
+        width: 1000px;
     }
     
     .score-container {
-        width: 800px;
+        width: 1000px;
+    }
+
+    .player-container {
+        width:1000px;
     }
 }

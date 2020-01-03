@@ -1,6 +1,7 @@
 var socket = io();
 var login;
 var charades;
+var winner;
 
 var yourCharade;
 
@@ -45,7 +46,7 @@ function displayPlayers(scores, players) {
             console.log(currentPlayer);
             incrementScore(currentPlayer);
         }
-        div.innerHTML = `${players[i]}<br><span class="score-text">${score}</span>`;
+        div.innerHTML = `${players[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
         playerContainer.appendChild(div);
     }
 
@@ -71,11 +72,22 @@ socket.on('new-card', function(name) {
 window.addEventListener('load', function() {
     login = document.getElementById('login');
     charades = document.getElementById('charades');
+    winner = document.getElementById('winner');
+    document.getElementById('name-input').focus();
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        submitUserName();
+    });
 });
 
 socket.on('load-score-data', function(scores, names) {
     console.log(scores);
     displayPlayers(scores, names);
+});
+
+socket.on('game-over', function(winner) {
+    console.log(winner);
+    showWinner(winner);
 });
 
 function hideLogin(name) {
@@ -84,16 +96,23 @@ function hideLogin(name) {
     document.getElementById("my-user").value = name;
 }
 
+function showWinner(winner) {
+    charades.style.display = 'none';
+    winner.style.display = 'inline-block';
+}
+
 function submitUserName() {
     var name = document.getElementById('name-input').value;
-    socket.emit('new-user-name', name);
+    var room = document.getElementById('room-input').value;
+
+    socket.emit('new-user-name', name, room);
     hideLogin(name);
 }
 
 function revealAnswer() {
     console.log("Revealed");
     socket.emit('user-revealed-answer');
-    document.getElementById('new-charade').style.display = 'inline-block';
+    // document.getElementById('new-charade').style.display = 'inline-block';
     document.getElementById('reveal-button').style.display = 'none';
 }
 
@@ -185,7 +204,8 @@ socket.on('set-colour', function(chosenCategory) {
 
 function changeLightColour(r, g, b) {
     var xhttp = new XMLHttpRequest();
-    var parameters = `red=${r}&green=${g}&blue=${b}&brightness=${175}`;
+    var brightness = document.getElementById('brightness-slider').value;
+    var parameters = `red=${r}&green=${g}&blue=${b}&brightness=${brightness}`;
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if (this.responseText === "success") {
