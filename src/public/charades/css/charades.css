@@ -115,33 +115,59 @@ body {
 }
 
 .first-place-container {
-    position: absolute;    
-    margin-left: 60px;
-    margin-top: 80;
+    position: absolute;
+    background-color: #32527b;
+    border: 1px solid #19293d;
+    height: 320px;
+    margin-left: -60px;
 }
 
 .second-place-container {
     position: absolute;
-    margin-left: -100px;
-    margin-top: 160px;
+    background-color: #32527b;
+    border: 1px solid #19293d;
+    height: 240px;
+    margin-left: -180px;
+    margin-top: 80px;
 }
 
 .third-place-container {
     position: absolute;
-    margin-left: 220px;
-    margin-top: 240px;
+    background-color: #32527b;
+    border: 1px solid #19293d;
+    height: 160px;
+    margin-left: 60px;
+    margin-top: 160px;
+}
+
+.top-three-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-top: 80px;
+    height: 360px;
 }
 
 .other-player-container {
     position: relative;
     display: inline-block;
-    margin-top: 400px;
+    width: 100%;
 }
 
-.top-three-container {
-    position: relative;
-    display: inline-block
+.score-board {
+    min-width: 100%;
 }
+
+.podeum {
+    min-width: 100%;
+}
+
+.winner {
+    width: 100%;
+    display: none;
+}
+
+
 
 @media only screen and (min-width: 1250px){
 
