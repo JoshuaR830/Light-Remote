@@ -199,7 +199,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/charades', function(req, res) { 
-    res.sendFile(`${process.cwd()}/public/charades/Charades.html`);
+    res.sendFile(`${process.cwd()}/public/charades/charades.html`);
 });
 
 http.listen(8000, () => console.log('Listening on port 8000!'));
