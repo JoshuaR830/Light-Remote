@@ -3,6 +3,10 @@
     --accent-color: #9954d1;
     --border-color: #7332a8;
     --text-color: #ffffff;
+    --first-width: 1;
+    --second-width: 1;
+    --third-width: 2;
+    --score-height: 1;
 }
 
 body {
@@ -44,6 +48,10 @@ body {
     height: 100px;
     margin-top: 32px;
     display: inline-block;
+}
+
+.highlight-word {
+    color: var(--border-color);
 }
 
 .player-container {
@@ -118,7 +126,8 @@ body {
     position: absolute;
     background-color: #32527b;
     border: 1px solid #19293d;
-    height: 320px;
+    height: calc(calc(var(--score-height)*120px) + 200px);
+    width: calc(var(--first-width)*120px);
     margin-left: -60px;
 }
 
@@ -126,8 +135,9 @@ body {
     position: absolute;
     background-color: #32527b;
     border: 1px solid #19293d;
-    height: 240px;
-    margin-left: -180px;
+    height: calc(calc(var(--score-height)*120px) + 120px);
+    width: calc(var(--second-width)*120px);
+    margin-left: calc(calc(var(--second-width)*-120px) - 60px);
     margin-top: 80px;
 }
 
@@ -135,7 +145,8 @@ body {
     position: absolute;
     background-color: #32527b;
     border: 1px solid #19293d;
-    height: 160px;
+    height: calc(calc(var(--score-height)*120px) + 40px);
+    width: calc(var(--third-width)*120px);
     margin-left: 60px;
     margin-top: 160px;
 }
@@ -152,6 +163,7 @@ body {
     position: relative;
     display: inline-block;
     width: 100%;
+    margin-bottom: 24px;
 }
 
 .score-board {

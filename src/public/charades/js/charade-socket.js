@@ -109,34 +109,75 @@ function showWinners(scores, names) {
     console.log(orderedNames.length);
 
     var position;
+    var num = 0;
+    var positions = [0, 0, 0, 0];
 
 
     for(i = 0; i < orderedNames.length; i++) {
+        var root = document.documentElement;
         score = scores[orderedNames[i]];
         var position = document.createElement('div');
         var place;
+        var j = i;
 
-        if (i === 0) {
+        if(i > 0) {
+            if (scores[orderedNames[i]] === scores[orderedNames[i-1]]) {
+                num ++;
+            }
+        }
+        
+        j = (i - num);
+
+        console.log("num " + num);
+
+        console.log("J " + j);
+        console.log("i - num" + (i - num));
+
+
+
+        if (j === 0) {
+            positions[j] ++;
+            if(positions[j] <= 4) {
+                root.style.setProperty("--first-width", (positions[j]));
+            }
+
             console.log('first:' + orderedNames[i]);
             place = document.getElementById('first-place');
             position.classList.add('score', 'first-player');
             position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
             place.appendChild(position);
             
-        } else if (i === 1) {
+
+            
+        } else if (j === 1) {
+            positions[j] ++;
+            if(positions[j] <= 4) {
+                root.style.setProperty("--second-width", (positions[j]));
+            }
+
+
             console.log('second:' + orderedNames[i])
             place = document.getElementById('second-place');
             position.classList.add('score', 'second-player');
             position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
             place.appendChild(position);
+            
 
             
-        } else if (i == 2) {
+        } else if (j == 2) {
+            positions[j] ++;
+            if(positions[j] <= 4) {
+                root.style.setProperty("--third-width", (positions[j]));
+            }
+
+
             place = document.getElementById('third-place');
             position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
             position.classList.add('score', 'third-player');
             console.log('third:' + orderedNames[i]);
             place.appendChild(position);
+           
+
 
 
         } else {
@@ -149,8 +190,18 @@ function showWinners(scores, names) {
 
             position.innerHTML = `${orderedNames[i].split(" ")[0]}<br><span class="score-text">${score}</span>`;
             place.appendChild(position);
+            positions[3] ++;
+
         }
+
+
+
+        console.log(positions);
     };
+
+    positions.sort().reverse();
+    root.style.setProperty("--score-height", (Math.ceil(positions[0] / 4)));
+
 }
 
 function hideLogin(name) {
@@ -205,17 +256,17 @@ function setColours() {
         root.style.setProperty("--card-color", "rgb(0, 85, 164)");
         root.style.setProperty("--accent-color", "rgb(239, 65, 53)");
         root.style.setProperty("--border-color", "rgb(239, 65, 53)");
-        root.style.setProperty("--text-color", "rgb(0, 0, 0)");
+        root.style.setProperty("--text-color", "rgb(255, 255, 255)");
     } else if (category === "technology") {
         root.style.setProperty("--card-color", "rgb(95, 24, 128)");
         root.style.setProperty("--accent-color", "rgb(143, 40, 191)");
         root.style.setProperty("--border-color", "rgb(110, 55, 135)");
-        root.style.setProperty("--text-color", "rgb(0, 0, 0)");
+        root.style.setProperty("--text-color", "rgb(255, 255, 255)");
     } else if (category === "animals") {
         root.style.setProperty("--card-color", "rgb(130, 87, 8)");
         root.style.setProperty("--accent-color", "rgb(219, 116, 13)");
         root.style.setProperty("--border-color", "rgb(184, 95, 7)");
-        root.style.setProperty("--text-color", "rgb(217, 155, 93)");
+        root.style.setProperty("--text-color", "rgb(64, 38, 8)");
     } else if (category === "books") {
         root.style.setProperty("--card-color", "rgb(0, 242, 255)");
         root.style.setProperty("--accent-color", "rgb(14, 189, 199)");
