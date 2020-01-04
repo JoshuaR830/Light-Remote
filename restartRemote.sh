@@ -7,7 +7,7 @@ docker rm light-remote
 echo "Build the new docker image"
 docker build -t root/light-remote-image .
 echo "Running the new container"
-docker run --name light-remote --restart always -p 80:8000 -d root/light-remote-image
+docker run --name light-remote --restart always -p 38118:8000 -d root/light-remote-image
 echo ""
 
 echo "Complete"
