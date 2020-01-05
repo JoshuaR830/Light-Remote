@@ -9,6 +9,7 @@ var request = require('request');
 var names = [];
 var scores = {};
 var sortedScores = {};
+var arduinoAddress = "http://192.168.0.76";
 
 const winningScore = 5;
 
@@ -205,7 +206,7 @@ app.post('/', function(req, res) {
     var brightness = req.body.brightness;
 
     request({
-        url: "http://192.168.0.76",
+        url: arduinoAddress,
         method: "POST",
         headers: {
             "content-type": "application/x-www-form-urlencoded",
@@ -216,11 +217,7 @@ app.post('/', function(req, res) {
         if (response.body === "success") {
             res.send("success");
         }
-    })
-
-
-
-    
+    });
 });
 
 app.get('/', function(req, res) { 
