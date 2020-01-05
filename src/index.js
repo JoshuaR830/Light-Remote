@@ -213,7 +213,7 @@ app.post('/', function(req, res) {
         body: `red=${red}&green=${green}&blue=${blue}&brightness=${brightness}`
     }, function (error, response, body) {
         console.log(response);
-        if (response === "success") {
+        if (response.body === "success") {
             res.send("success");
         }
     })
