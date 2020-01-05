@@ -27,6 +27,7 @@ app.post('/', function(req, res) {
     }, function (error, response, body) {
         console.log(response);
         if (response.body === "success") {
+            res.header("Access-Control-Allow-Origin", "*");
             res.send("success");
         }
     });
