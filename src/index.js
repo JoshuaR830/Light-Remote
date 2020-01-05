@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+var body = require('body-parser');
 
 var names = [];
 var scores = {};
@@ -35,6 +36,7 @@ var categories = initialCategories;
 var answer;
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 function displayScoreBoard() {
     console.log('All done');
@@ -195,7 +197,7 @@ io.on('connection', function(socket) {
 });
 
 app.post('/', function(req, res) {
-    console.log(req);
+    console.log(req.body);
 });
 
 app.get('/', function(req, res) { 
