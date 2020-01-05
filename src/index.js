@@ -20,7 +20,8 @@ app.post('/', function(req, res) {
         url: arduinoAddress,
         method: "POST",
         headers: {
-            "content-type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Access-Control-Allow-Origin": "*",
         },
         body: `red=${red}&green=${green}&blue=${blue}&brightness=${brightness}`
     }, function (error, response, body) {
