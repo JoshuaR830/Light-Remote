@@ -194,6 +194,10 @@ io.on('connection', function(socket) {
     })
 });
 
+app.post('/', function(req, res) {
+    console.log(req);
+});
+
 app.get('/', function(req, res) { 
     res.sendFile(`${process.cwd()}/LightRemote.html`);
 });
@@ -203,4 +207,3 @@ app.get('/charades', function(req, res) {
 });
 
 http.listen(8000, () => console.log('Listening on port 8000!'));
-

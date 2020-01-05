@@ -13,7 +13,37 @@ html, body {
     background-color: #4d4654;
     display: inline-block;
     border-radius: 16px;
+    position: relative;
 }
+
+.mode-switcher {
+    background-color: #63586e;
+    fill: #d1bee6;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    border-radius: 50%;
+}
+
+.mode-switcher:hover {
+    cursor: pointer;
+    animation-name: inputFocus;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes inputFocus {
+    0% {
+        box-shadow: 0 0 0 #d1bee6;
+    }
+    100% {
+        box-shadow: 0 0 16px #d1bee6;
+    }
+} 
 
 .container {
     box-sizing: border-box;
