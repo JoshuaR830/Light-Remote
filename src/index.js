@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-var body = require('body-parser');
+var bodyParser = require('body-parser');
 
 var names = [];
 var scores = {};
